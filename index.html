@@ -6,24 +6,30 @@
 	<title>Assigning a Dashboard to the Viewer</title>
 
 	<!-- Stimulsoft Dashboards.JS -->
-	<script src="../scripts/stimulsoft.reports.js" type="text/javascript"></script>
-	<script src="../scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
-	<script src="../scripts/stimulsoft.viewer.js" type="text/javascript"></script>
+	<script src="scripts/stimulsoft.reports.js" type="text/javascript"></script>
+	<script src="scripts/stimulsoft.dashboards.js" type="text/javascript"></script>
+	<script src="scripts/stimulsoft.viewer.js" type="text/javascript"></script>
 
 	<!-- Dashboard viewer scripts, may be external -->
 	<script type="text/javascript">
-		// Create the dashboard viewer with default options
-		var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
-		// Create a new dashboard instance
-		var report = Stimulsoft.Report.StiReport.createNewDashboard();
-		// Load dashboard from url
-		report.loadFile("../dashboards/IDECDashboard-Agg14.mrt");
-		// Assign dashboard to the viewer
-		viewer.report = report;
+		function Start() {
+			
+			var report = Stimulsoft.Report.StiReport.createNewDashboard();
+			// Load dashboard from url
+			report.loadFile("dashboards/IDECDashboard-Agg14.mrt");
+			
+			// Create the dashboard viewer with default options
+			var viewer = new Stimulsoft.Viewer.StiViewer(null, "StiViewer", false);
+			// Create a new dashboard instance
+			
+			// Assign dashboard to the viewer
+			viewer.report = report;
+		}	
+		
 	</script>
 </head>
 
-<body>
+<body onloads="Start()">
 	Assigning a Dashboard to the Viewer
 	<br><br>
 
